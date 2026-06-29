@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: logstreamer-backend
+  threads:
+    virtual:
+      enabled: true
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+logstreamer:
+  debug:
+    enabled: true
+  push:
+    apns:
+      enabled: true
+      send-enabled: false
+      simulator-output-dir: generated-apns
+      base-url: https://api.sandbox.push.apple.com
+      topic: "dummy-topic"
+      team-id: "dummy-team-id"
+      key-id: "dummy-key-id"
+      private-key-path: "dummy_private_key.p8"
+      connect-timeout-ms: 5000
+  session:
+    default-retention-hours: 24
+    upload-base-url: http://localhost:8080
+    expiry-check-ms: 60000
+  sse:
+    timeout-ms: 1800000

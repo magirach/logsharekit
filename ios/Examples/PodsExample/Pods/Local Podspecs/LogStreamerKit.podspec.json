@@ -1,0 +1,28 @@
+{
+  "name": "LogStreamerKit",
+  "version": "0.1.0",
+  "summary": "On-demand mobile log streaming library for iOS.",
+  "description": "LogStreamerKit captures app logs and URLSession network logs, prompts for consent, and uploads batched events to a backend.",
+  "homepage": "https://example.com/logstreamerkit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "OpenAI Codex": "noreply@example.com"
+  },
+  "source": {
+    "git": "https://example.com/logstreamerkit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "15.0"
+  },
+  "swift_versions": "5.10",
+  "source_files": "Sources/LogStreamerKit/**/*.swift",
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
+  "swift_version": "5.10"
+}

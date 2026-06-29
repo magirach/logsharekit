@@ -1,0 +1,27 @@
+{
+  "Simulator Target Bundle" : "com.example.logstreamer.podsexample",
+  "aps" : {
+    "alert" : {
+      "body" : "Hello from the simulator!",
+      "title" : "Test Notification"
+    }
+  },
+  "sound" : "default",
+  "badge" : 1,
+  "data" : {
+    "command" : "start_logging",
+    "sessionId" : "sess_5aee6783f9bc430e",
+    "appId" : "ios-app",
+    "environment" : "internal",
+    "userId" : "dfd",
+    "logs" : [ "network", "crash", "logs" ],
+    "stopPolicy" : {
+      "expiresAfterMinutes" : 30,
+      "maxEvents" : null,
+      "maxBytes" : null
+    },
+    "retentionHours" : 24,
+    "uploadToken" : "037aaf6800a2a507c31eb3de6eb36c993bd1ee5afae583c6",
+    "baseUrl" : "http://localhost:8080"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "Simulator Target Bundle": "com.example.logstreamer.podsexample",
+  "aps": {
+    "alert": {
+      "title": "Test Notification",
+      "body": "Hello from the simulator!"
+    },
+    "sound": "default",
+    "badge": 1
+  }
+}

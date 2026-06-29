@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKitPackageTests.build/primary.swiftdeps"
+  },
+  "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKitPackageTests.derived/runner.swift": {
+    "dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKitPackageTests.build/runner.d",
+    "object": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKitPackageTests.build/runner.swift.o",
+    "swiftmodule": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKitPackageTests.build/runner~partial.swiftmodule",
+    "swift-dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKitPackageTests.build/runner.swiftdeps",
+    "diagnostics": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKitPackageTests.build/runner.dia"
+  }
+}

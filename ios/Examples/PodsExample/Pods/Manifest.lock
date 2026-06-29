@@ -1,0 +1,16 @@
+PODS:
+  - LogStreamerKit (0.1.0)
+
+DEPENDENCIES:
+  - LogStreamerKit (from `../../`)
+
+EXTERNAL SOURCES:
+  LogStreamerKit:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  LogStreamerKit: c78654f6318b683d0e96d7b076bba47a02382086
+
+PODFILE CHECKSUM: 32e9da43880a97f9822657116457968f6fab303b
+
+COCOAPODS: 1.16.2

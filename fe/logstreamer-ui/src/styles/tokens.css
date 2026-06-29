@@ -1,0 +1,21 @@
+:root {
+  --bg: #f4efe5;
+  --bg-panel: rgba(255, 250, 242, 0.86);
+  --bg-strong: #fff7eb;
+  --line: rgba(69, 47, 25, 0.14);
+  --line-strong: rgba(69, 47, 25, 0.28);
+  --text: #1e1811;
+  --muted: #675947;
+  --accent: #b5522f;
+  --accent-soft: #f3d6c4;
+  --success: #2d7f5e;
+  --warning: #b5741a;
+  --danger: #b2362d;
+  --shadow: 0 30px 80px rgba(92, 51, 17, 0.15);
+  --radius-xl: 28px;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-body: "Avenir Next", "Segoe UI", sans-serif;
+  --font-mono: "SFMono-Regular", "Menlo", "Consolas", monospace;
+}

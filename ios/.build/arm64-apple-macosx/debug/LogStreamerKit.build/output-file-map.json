@@ -1,0 +1,117 @@
+{
+  "": {
+    "swift-dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/primary.swiftdeps"
+  },
+  "/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Buffer/BatchBuffer.swift": {
+    "dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/BatchBuffer.d",
+    "object": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/BatchBuffer.swift.o",
+    "swiftmodule": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/BatchBuffer~partial.swiftmodule",
+    "swift-dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/BatchBuffer.swiftdeps",
+    "diagnostics": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/BatchBuffer.dia"
+  },
+  "/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Consent/ConsentManager.swift": {
+    "dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/ConsentManager.d",
+    "object": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/ConsentManager.swift.o",
+    "swiftmodule": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/ConsentManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/ConsentManager.swiftdeps",
+    "diagnostics": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/ConsentManager.dia"
+  },
+  "/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Core/LogStreamerRuntime.swift": {
+    "dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamerRuntime.d",
+    "object": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamerRuntime.swift.o",
+    "swiftmodule": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamerRuntime~partial.swiftmodule",
+    "swift-dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamerRuntime.swiftdeps",
+    "diagnostics": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamerRuntime.dia"
+  },
+  "/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Core/Models.swift": {
+    "dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/Models.d",
+    "object": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/Models.swift.o",
+    "swiftmodule": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/Models~partial.swiftmodule",
+    "swift-dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/Models.swiftdeps",
+    "diagnostics": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/Models.dia"
+  },
+  "/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Logging/AppLogger.swift": {
+    "dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/AppLogger.d",
+    "object": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/AppLogger.swift.o",
+    "swiftmodule": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/AppLogger~partial.swiftmodule",
+    "swift-dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/AppLogger.swiftdeps",
+    "diagnostics": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/AppLogger.dia"
+  },
+  "/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Network/InstrumentedURLSessionFactory.swift": {
+    "dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/InstrumentedURLSessionFactory.d",
+    "object": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/InstrumentedURLSessionFactory.swift.o",
+    "swiftmodule": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/InstrumentedURLSessionFactory~partial.swiftmodule",
+    "swift-dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/InstrumentedURLSessionFactory.swiftdeps",
+    "diagnostics": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/InstrumentedURLSessionFactory.dia"
+  },
+  "/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Network/NetworkInspectorStore.swift": {
+    "dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/NetworkInspectorStore.d",
+    "object": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/NetworkInspectorStore.swift.o",
+    "swiftmodule": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/NetworkInspectorStore~partial.swiftmodule",
+    "swift-dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/NetworkInspectorStore.swiftdeps",
+    "diagnostics": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/NetworkInspectorStore.dia"
+  },
+  "/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Public/LogStreamer.swift": {
+    "dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamer.d",
+    "object": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamer.swift.o",
+    "swiftmodule": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamer~partial.swiftmodule",
+    "swift-dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamer.swiftdeps",
+    "diagnostics": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamer.dia"
+  },
+  "/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Public/LogStreamerConfig.swift": {
+    "dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamerConfig.d",
+    "object": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamerConfig.swift.o",
+    "swiftmodule": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamerConfig~partial.swiftmodule",
+    "swift-dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamerConfig.swiftdeps",
+    "diagnostics": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamerConfig.dia"
+  },
+  "/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Public/LogStreamerLogger.swift": {
+    "dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamerLogger.d",
+    "object": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamerLogger.swift.o",
+    "swiftmodule": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamerLogger~partial.swiftmodule",
+    "swift-dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamerLogger.swiftdeps",
+    "diagnostics": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamerLogger.dia"
+  },
+  "/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Public/LogStreamerNetworkInspectorView.swift": {
+    "dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamerNetworkInspectorView.d",
+    "object": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamerNetworkInspectorView.swift.o",
+    "swiftmodule": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamerNetworkInspectorView~partial.swiftmodule",
+    "swift-dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamerNetworkInspectorView.swiftdeps",
+    "diagnostics": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/LogStreamerNetworkInspectorView.dia"
+  },
+  "/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Push/PushPayloadParser.swift": {
+    "dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/PushPayloadParser.d",
+    "object": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/PushPayloadParser.swift.o",
+    "swiftmodule": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/PushPayloadParser~partial.swiftmodule",
+    "swift-dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/PushPayloadParser.swiftdeps",
+    "diagnostics": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/PushPayloadParser.dia"
+  },
+  "/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Redaction/RedactionEngine.swift": {
+    "dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/RedactionEngine.d",
+    "object": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/RedactionEngine.swift.o",
+    "swiftmodule": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/RedactionEngine~partial.swiftmodule",
+    "swift-dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/RedactionEngine.swiftdeps",
+    "diagnostics": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/RedactionEngine.dia"
+  },
+  "/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Storage/SessionStore.swift": {
+    "dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/SessionStore.d",
+    "object": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/SessionStore.swift.o",
+    "swiftmodule": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/SessionStore~partial.swiftmodule",
+    "swift-dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/SessionStore.swiftdeps",
+    "diagnostics": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/SessionStore.dia"
+  },
+  "/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Support/ISO8601DateFormatter+Shared.swift": {
+    "dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/ISO8601DateFormatter+Shared.d",
+    "object": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/ISO8601DateFormatter+Shared.swift.o",
+    "swiftmodule": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/ISO8601DateFormatter+Shared~partial.swiftmodule",
+    "swift-dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/ISO8601DateFormatter+Shared.swiftdeps",
+    "diagnostics": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/ISO8601DateFormatter+Shared.dia"
+  },
+  "/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Upload/UploadClient.swift": {
+    "dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/UploadClient.d",
+    "object": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/UploadClient.swift.o",
+    "swiftmodule": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/UploadClient~partial.swiftmodule",
+    "swift-dependencies": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/UploadClient.swiftdeps",
+    "diagnostics": "/Users/atiqaakif/Documents/logs_stream/ios/.build/arm64-apple-macosx/debug/LogStreamerKit.build/UploadClient.dia"
+  }
+}

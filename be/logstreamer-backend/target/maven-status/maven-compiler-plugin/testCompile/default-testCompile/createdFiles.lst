@@ -1,0 +1,3 @@
+com/company/logstreamer/SessionFlowIntegrationTest.class
+com/company/logstreamer/stream/sse/SessionStreamServiceTest.class
+com/company/logstreamer/stream/sse/SessionStreamServiceTest$BrokenEmitter.class

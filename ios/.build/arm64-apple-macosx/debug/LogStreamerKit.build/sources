@@ -1,0 +1,16 @@
+/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Buffer/BatchBuffer.swift
+/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Consent/ConsentManager.swift
+/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Core/LogStreamerRuntime.swift
+/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Core/Models.swift
+/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Logging/AppLogger.swift
+/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Network/InstrumentedURLSessionFactory.swift
+/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Network/NetworkInspectorStore.swift
+/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Public/LogStreamer.swift
+/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Public/LogStreamerConfig.swift
+/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Public/LogStreamerLogger.swift
+/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Public/LogStreamerNetworkInspectorView.swift
+/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Push/PushPayloadParser.swift
+/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Redaction/RedactionEngine.swift
+/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Storage/SessionStore.swift
+/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Support/ISO8601DateFormatter+Shared.swift
+/Users/atiqaakif/Documents/logs_stream/ios/Sources/LogStreamerKit/Upload/UploadClient.swift

@@ -1,0 +1,361 @@
+{
+  "info": {
+    "_postman_id": "8e4d3caf-2f9f-44de-b17f-4138f3b9c1f7",
+    "name": "LogStreamer Backend Local",
+    "description": "Postman collection for local testing of the LogStreamer backend. Import this collection with the `LogStreamer Local` environment, start the backend on `localhost:8080`, then run requests top to bottom. The mobile requests depend on `sessionId` and `uploadToken`, which are captured automatically by the earlier requests.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/actuator/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "actuator",
+            "health"
+          ]
+        },
+        "description": "Sanity check that the local backend is running."
+      }
+    },
+    {
+      "name": "Operator",
+      "item": [
+        {
+          "name": "Create Session",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('session created', function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "var body = pm.response.json();",
+                  "pm.environment.set('sessionId', body.sessionId);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appId\": \"ios-app\",\n  \"environment\": \"internal\",\n  \"bundleIdentifier\": \"com.example.logstreamer.podsexample\",\n  \"apnsToken\": \"apns-token-123\",\n  \"userId\": \"user-123\",\n  \"logs\": \"network,crash,logs\",\n  \"stopPolicy\": {\n    \"expiryMinutes\": 30,\n    \"maxEvents\": null,\n    \"maxBytes\": null\n  },\n  \"retentionHours\": 24\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/sessions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "sessions"
+              ]
+            },
+            "description": "Creates a fresh log streaming session, validates the requested log types CSV, triggers the local APNs push stub for the supplied `apnsToken`, and stores `sessionId` in the active environment."
+          }
+        },
+        {
+          "name": "List Sessions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/sessions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "sessions"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Session",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/sessions/{{sessionId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "sessions",
+                "{{sessionId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Resend Push",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/sessions/{{sessionId}}/resend",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "sessions",
+                "{{sessionId}}",
+                "resend"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Stop Session",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/sessions/{{sessionId}}/stop",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "sessions",
+                "{{sessionId}}",
+                "stop"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Debug Local",
+      "item": [
+        {
+          "name": "Get Upload Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('upload token available', function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "var body = pm.response.json();",
+                  "pm.environment.set('uploadToken', body.uploadToken);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/debug/sessions/{{sessionId}}/upload-token",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "debug",
+                "sessions",
+                "{{sessionId}}",
+                "upload-token"
+              ]
+            },
+            "description": "Local-only debug route. Reads the raw upload token generated for the session and stores it in the active environment for the mobile requests."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mobile",
+      "item": [
+        {
+          "name": "Consent Shown",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{uploadToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shownAt\": \"2026-06-28T10:00:00Z\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/mobile/sessions/{{sessionId}}/consent-shown",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "mobile",
+                "sessions",
+                "{{sessionId}}",
+                "consent-shown"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Upload App Logs",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{uploadToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sentAt\": \"2026-06-28T10:01:00Z\",\n  \"events\": [\n    {\n      \"eventId\": \"evt-1\",\n      \"timestamp\": \"2026-06-28T10:00:30Z\",\n      \"type\": \"app_log\",\n      \"level\": \"INFO\",\n      \"component\": \"HomeScreen\",\n      \"message\": \"Screen loaded\",\n      \"metadata\": {\n        \"screen\": \"home\",\n        \"mode\": \"foreground\"\n      },\n      \"payload\": {\n        \"message\": \"Screen loaded\"\n      }\n    },\n    {\n      \"eventId\": \"evt-2\",\n      \"timestamp\": \"2026-06-28T10:00:45Z\",\n      \"type\": \"network_log\",\n      \"level\": \"DEBUG\",\n      \"component\": \"URLSession\",\n      \"message\": \"GET /v1/profile\",\n      \"metadata\": {\n        \"method\": \"GET\",\n        \"path\": \"/v1/profile\",\n        \"status\": \"200\"\n      },\n      \"payload\": {\n        \"requestHeaders\": {\n          \"Accept\": \"application/json\"\n        },\n        \"responseBody\": {\n          \"ok\": true\n        }\n      }\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/mobile/sessions/{{sessionId}}/events",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "mobile",
+                "sessions",
+                "{{sessionId}}",
+                "events"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Cancel Session",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{uploadToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cancelledAt\": \"2026-06-28T10:02:00Z\",\n  \"reason\": \"User denied consent\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/mobile/sessions/{{sessionId}}/cancel",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "mobile",
+                "sessions",
+                "{{sessionId}}",
+                "cancel"
+              ]
+            },
+            "description": "Alternative mobile path. Use this on a fresh session if you want to test the consent-denied branch."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Search And Stream",
+      "item": [
+        {
+          "name": "Search Logs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/sessions/{{sessionId}}/logs?limit=100",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "sessions",
+                "{{sessionId}}",
+                "logs"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "100"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Open SSE Stream",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/sessions/{{sessionId}}/stream",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "sessions",
+                "{{sessionId}}",
+                "stream"
+              ]
+            },
+            "description": "Opens the live SSE stream for the current session. In Postman this stays open and shows status and event pushes as they arrive."
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ]
+}

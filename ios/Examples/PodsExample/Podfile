@@ -1,0 +1,8 @@
+source 'file:///private/tmp/cocoapods-specs'
+
+platform :ios, '17.0'
+use_frameworks!
+
+target 'PodsExample' do
+  pod 'LogStreamerKit', :path => '../../'
+end
