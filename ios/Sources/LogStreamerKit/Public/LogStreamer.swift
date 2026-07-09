@@ -129,8 +129,38 @@ public enum LogStreamer {
         runtime.networkEntries()
     }
 
+    /// Returns lightweight summaries for locally captured network inspector entries.
+    public static func networkEntrySummaries() async -> [LogStreamerNetworkEntrySummary] {
+        runtime.networkEntrySummaries()
+    }
+
+    /// Returns a single locally captured network inspector entry by identifier.
+    public static func networkEntry(id: UUID) async -> LogStreamerNetworkEntry? {
+        runtime.networkEntry(id: id)
+    }
+
     /// Clears locally captured network inspector entries.
     public static func clearNetworkEntries() async {
         runtime.clearNetworkEntries()
+    }
+
+    /// Returns the persisted network inspector settings currently applied to local capture.
+    public static func networkInspectorSettings() async -> LogStreamerNetworkInspectorSettings {
+        runtime.networkInspectorSettings()
+    }
+
+    /// Replaces the persisted network inspector settings used for local capture.
+    public static func updateNetworkInspectorSettings(_ settings: LogStreamerNetworkInspectorSettings) async {
+        runtime.updateNetworkInspectorSettings(settings)
+    }
+
+    /// Exports a single locally captured request/response entry to a temporary JSON file.
+    public static func exportNetworkEntry(id: UUID) async -> URL? {
+        runtime.exportNetworkEntry(id: id)
+    }
+
+    /// Exports the full locally captured inspector session to a temporary JSON file.
+    public static func exportNetworkSession() async -> URL? {
+        runtime.exportNetworkSession()
     }
 }

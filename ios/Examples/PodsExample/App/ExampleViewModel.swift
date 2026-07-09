@@ -67,18 +67,44 @@ final class ExampleViewModel: ObservableObject {
         )
     }
 
-    func runNetworkRequest() {
+    func runNetworkRequestDemo() async {
         let configuration = URLSessionConfiguration.ephemeral
         configuration.protocolClasses = [MockAPIURLProtocol.self]
         let session = LogStreamer.makeInstrumentedSession(configuration: configuration)
-        let url = URL(string: "https://api.example.local/demo")!
-        let task = session.dataTask(with: url) { _, _, _ in }
-        task.resume()
+
+        let requests = makeDemoRequests()
+        await withTaskGroup(of: Void.self) { group in
+            for request in requests {
+                group.addTask {
+                    _ = try? await session.data(for: request)
+                }
+            }
+        }
+        await refresh()
     }
 
     private func refresh() async {
         snapshot = await LogStreamer.debugSnapshot()
         backendSnapshot = MockBackendURLProtocol.snapshot()
         networkEntries = await LogStreamer.networkEntries()
+    }
+
+    private func makeDemoRequests() -> [URLRequest] {
+        var requests: [URLRequest] = []
+
+        requests.append(URLRequest(url: URL(string: "https://api.example.local/demo/json?source=pods")!))
+
+        var postRequest = URLRequest(url: URL(string: "https://api.example.local/demo/orders")!)
+        postRequest.httpMethod = "POST"
+        postRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        postRequest.httpBody = #"{"orderId":"ord-2001","items":[{"sku":"jeans","qty":1}]}"#.data(using: .utf8)
+        requests.append(postRequest)
+
+        requests.append(URLRequest(url: URL(string: "https://api.example.local/demo/page")!))
+        requests.append(URLRequest(url: URL(string: "https://api.example.local/demo/text")!))
+        requests.append(URLRequest(url: URL(string: "https://api.example.local/demo/file")!))
+        requests.append(URLRequest(url: URL(string: "https://api.example.local/demo/missing")!))
+
+        return requests
     }
 }

@@ -53,10 +53,14 @@ struct ContentView: View {
             }
             .buttonStyle(.bordered)
 
-            Button("Run Mock Network Request") {
-                viewModel.runNetworkRequest()
+            Button("Run Mixed Network Demo") {
+                Task { await viewModel.runNetworkRequestDemo() }
             }
             .buttonStyle(.bordered)
+
+            Text("Generates JSON, POST body echo, HTML, text, binary, and error responses.")
+                .font(.footnote)
+                .foregroundStyle(.secondary)
 
             Button("Simulate Stop Push") {
                 Task { await viewModel.simulateStopPush() }

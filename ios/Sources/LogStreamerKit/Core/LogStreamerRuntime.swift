@@ -31,7 +31,10 @@ final class LogStreamerRuntime {
         self.isForeground = Self.applicationIsForeground
         self.uploadClient = UploadClient(config: config)
         self.redactionEngine = RedactionEngine(redactedKeys: config.redactedKeys)
-        self.networkInspectorStore.configure(maxEntries: config.networkInspectorMaxEntries)
+        self.networkInspectorStore.configure(
+            maxEntries: config.networkInspectorMaxEntries,
+            defaultSettings: config.networkInspectorSettings
+        )
         if currentSession == nil {
             currentSession = store.load()
         }
@@ -421,7 +424,7 @@ final class LogStreamerRuntime {
         isForeground = true
         lastError = nil
         buffer.removeAll()
-        networkInspectorStore.clear()
+        networkInspectorStore.resetForTesting()
         store.clear()
     }
 
@@ -429,8 +432,32 @@ final class LogStreamerRuntime {
         networkInspectorStore.snapshot()
     }
 
+    func networkEntrySummaries() -> [LogStreamerNetworkEntrySummary] {
+        networkInspectorStore.snapshotSummaries()
+    }
+
+    func networkEntry(id: UUID) -> LogStreamerNetworkEntry? {
+        networkInspectorStore.entry(id: id)
+    }
+
     func clearNetworkEntries() {
         networkInspectorStore.clear()
+    }
+
+    func networkInspectorSettings() -> LogStreamerNetworkInspectorSettings {
+        networkInspectorStore.settingsSnapshot()
+    }
+
+    func updateNetworkInspectorSettings(_ settings: LogStreamerNetworkInspectorSettings) {
+        networkInspectorStore.updateSettings(settings)
+    }
+
+    func exportNetworkEntry(id: UUID) -> URL? {
+        networkInspectorStore.exportEntry(id: id)
+    }
+
+    func exportNetworkSession() -> URL? {
+        networkInspectorStore.exportSession()
     }
 
     private static var applicationIsForeground: Bool {

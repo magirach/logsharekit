@@ -57,6 +57,7 @@ public struct LogStreamerConfig {
     public var redactedKeys: Set<String>
     public var batchPolicy: BatchPolicy
     public var networkInspectorMaxEntries: Int
+    public var networkInspectorSettings: LogStreamerNetworkInspectorSettings
     public var additionalHeaders: [String: String]
     public var deviceId: String?
     public var installationId: String?
@@ -72,6 +73,7 @@ public struct LogStreamerConfig {
     ///   - redactedKeys: The case-insensitive keys that should be masked before upload.
     ///   - batchPolicy: The local buffering and flush policy for event uploads.
     ///   - networkInspectorMaxEntries: The maximum number of captured network entries kept for in-app inspection.
+    ///   - networkInspectorSettings: Persistent network inspector preferences such as ignored hosts and reset behavior.
     ///   - additionalHeaders: Additional HTTP headers appended to outbound mobile requests.
     ///   - deviceId: An optional device identifier forwarded to the backend.
     ///   - installationId: An optional installation identifier forwarded to the backend.
@@ -85,6 +87,7 @@ public struct LogStreamerConfig {
         redactedKeys: Set<String> = ["authorization", "token", "password", "secret", "cookie", "set-cookie"],
         batchPolicy: BatchPolicy = BatchPolicy(),
         networkInspectorMaxEntries: Int = 200,
+        networkInspectorSettings: LogStreamerNetworkInspectorSettings = LogStreamerNetworkInspectorSettings(),
         additionalHeaders: [String: String] = [:],
         deviceId: String? = nil,
         installationId: String? = nil,
@@ -100,6 +103,7 @@ public struct LogStreamerConfig {
         self.redactedKeys = redactedKeys
         self.batchPolicy = batchPolicy
         self.networkInspectorMaxEntries = max(0, networkInspectorMaxEntries)
+        self.networkInspectorSettings = networkInspectorSettings.normalized()
         self.additionalHeaders = additionalHeaders
         self.deviceId = deviceId
         self.installationId = installationId

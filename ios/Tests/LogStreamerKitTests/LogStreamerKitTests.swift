@@ -137,7 +137,7 @@ final class LogStreamerKitTests: XCTestCase {
 
         await fulfillment(of: [expectation], timeout: 2.0)
 
-        let entries = await LogStreamer.networkEntries()
+        let entries = await waitForNetworkEntries()
         let entry = try XCTUnwrap(entries.first)
         XCTAssertEqual(entry.requestMethod, "POST")
         XCTAssertEqual(entry.responseStatusCode, 200)
@@ -147,11 +147,82 @@ final class LogStreamerKitTests: XCTestCase {
         XCTAssertTrue(entry.curlCommand.contains("curl -X POST"))
     }
 
-    private func makeTestConfig() -> LogStreamerConfig {
+    @MainActor
+    func testNetworkInspectorIgnoresConfiguredHosts() async throws {
+        LogStreamerRuntime.shared.resetForTesting()
+        LogStreamer.initialize(
+            config: makeTestConfig(
+                networkInspectorSettings: LogStreamerNetworkInspectorSettings(
+                    ignoredHosts: ["example.logstreamer.local"]
+                )
+            )
+        )
+
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [StubInspectorURLProtocol.self]
+        let session = LogStreamer.makeInstrumentedSession(configuration: configuration)
+
+        let expectation = expectation(description: "ignored host request completes")
+        let request = URLRequest(url: URL(string: "https://example.logstreamer.local/ignored")!)
+        session.dataTask(with: request) { _, _, _ in
+            expectation.fulfill()
+        }.resume()
+
+        await fulfillment(of: [expectation], timeout: 2.0)
+
+        let entries = await LogStreamer.networkEntrySummaries()
+        XCTAssertTrue(entries.isEmpty)
+    }
+
+    @MainActor
+    func testNetworkInspectorResetOnLaunchClearsPersistedEntries() {
+        let store = NetworkInspectorStore()
+        store.clearAllPersistentData()
+        store.configure(
+            maxEntries: 200,
+            defaultSettings: LogStreamerNetworkInspectorSettings(resetOnAppLaunch: true)
+        )
+        store.append(makeNetworkEntry(url: "https://persist.example.com/orders/1"))
+        XCTAssertEqual(store.snapshotSummaries().count, 1)
+
+        let reloadedStore = NetworkInspectorStore()
+        reloadedStore.configure(maxEntries: 200, defaultSettings: LogStreamerNetworkInspectorSettings())
+
+        XCTAssertTrue(reloadedStore.snapshotSummaries().isEmpty)
+        XCTAssertEqual(reloadedStore.settingsSnapshot().ignoredHosts, [])
+        store.clearAllPersistentData()
+    }
+
+    @MainActor
+    func testNetworkInspectorSettingsPersistIgnoredHosts() {
+        let store = NetworkInspectorStore()
+        store.clearAllPersistentData()
+        store.configure(maxEntries: 200, defaultSettings: LogStreamerNetworkInspectorSettings())
+        store.updateSettings(
+            LogStreamerNetworkInspectorSettings(
+                resetOnAppLaunch: false,
+                ignoredHosts: [" API.EXAMPLE.com ", "api.example.com", "mobile.example.com"]
+            )
+        )
+
+        let reloadedStore = NetworkInspectorStore()
+        reloadedStore.configure(maxEntries: 200, defaultSettings: LogStreamerNetworkInspectorSettings())
+
+        XCTAssertEqual(
+            reloadedStore.settingsSnapshot().ignoredHosts,
+            ["api.example.com", "mobile.example.com"]
+        )
+        store.clearAllPersistentData()
+    }
+
+    private func makeTestConfig(
+        networkInspectorSettings: LogStreamerNetworkInspectorSettings = LogStreamerNetworkInspectorSettings()
+    ) -> LogStreamerConfig {
         LogStreamerConfig(
             baseURL: URL(string: "https://example.logstreamer.local")!,
             appId: "test-ios",
             environment: "test",
+            networkInspectorSettings: networkInspectorSettings,
             uploadSessionFactory: {
                 let configuration = URLSessionConfiguration.ephemeral
                 configuration.protocolClasses = [StubUploadURLProtocol.self]
@@ -194,6 +265,35 @@ final class LogStreamerKitTests: XCTestCase {
                 "sessionId": sessionId
             ]
         ]
+    }
+
+    private func makeNetworkEntry(url: String) -> LogStreamerNetworkEntry {
+        LogStreamerNetworkEntry(
+            id: UUID(),
+            requestMethod: "GET",
+            url: url,
+            startedAt: "2026-07-09T00:00:00Z",
+            finishedAt: "2026-07-09T00:00:01Z",
+            durationMs: 1000,
+            requestHeaders: ["Accept": "application/json"],
+            requestBody: nil,
+            responseStatusCode: 200,
+            responseHeaders: ["Content-Type": "application/json"],
+            responseBody: #"{"ok":true}"#,
+            errorDescription: nil
+        )
+    }
+
+    @MainActor
+    private func waitForNetworkEntries() async -> [LogStreamerNetworkEntry] {
+        for _ in 0..<25 {
+            let entries = await LogStreamer.networkEntries()
+            if !entries.isEmpty {
+                return entries
+            }
+            try? await Task.sleep(nanoseconds: 20_000_000)
+        }
+        return await LogStreamer.networkEntries()
     }
 }
 
